@@ -1,0 +1,46 @@
+parameters:
+    swm.mail_hook.service.mail_hook.class: Swm\Bundle\MailHookBundle\Service\MailHookService
+    swm.mail_hook.provider.api_service.class: Swm\Bundle\MailHookBundle\Provider\ApiServiceProvider
+    swm.mail_hook.hydrator.default.class: Swm\Bundle\MailHookBundle\Hydrator\DefaultHydrator
+    swm.mail_hook.api_service.campainmonitor.class: Swm\Bundle\MailHookBundle\ApiService\CampainmonitorApiService
+    swm.mail_hook.api_service.mailgun.class: Swm\Bundle\MailHookBundle\ApiService\MailgunApiService
+    swm.mail_hook.api_service.mailjet.class: Swm\Bundle\MailHookBundle\ApiService\MailjetApiService
+    swm.mail_hook.api_service.mandrill.class: Swm\Bundle\MailHookBundle\ApiService\MandrillApiService
+    swm.mail_hook.api_service.sendgrid.class: Swm\Bundle\MailHookBundle\ApiService\SendgridApiService
+
+services:
+    swm.mail_hook.service.mail_hook:
+        class: %swm.mail_hook.service.mail_hook.class%
+        scope: request
+        arguments:
+            - @request
+            - @swm.mail_hook.provider.api_service
+
+    swm.mail_hook.provider.api_service:
+        class: %swm.mail_hook.provider.api_service.class%
+        arguments:
+            - @service_container
+            - %swm_mailhook.apiservicesavailables%
+
+    swm.mail_hook.hydrator.default:
+        class: %swm.mail_hook.hydrator.default.class%
+
+    swm.mail_hook.hydrator.fos_user:
+        class: %swm.mail_hook.hydrator.default.class%
+        arguments:
+            - @fos_user.user_manager
+
+    swm.mail_hook.api_service.campainmonitor:
+        class: %swm.mail_hook.api_service.campainmonitor.class%
+
+    swm.mail_hook.api_service.mailgun:
+        class: %swm.mail_hook.api_service.mailgun.class%
+
+    swm.mail_hook.api_service.mailjet:
+        class: %swm.mail_hook.api_service.mailjet.class%
+
+    swm.mail_hook.api_service.mandrill:
+        class: %swm.mail_hook.api_service.mandrill.class%
+
+    swm.mail_hook.api_service.sendgrid:
+        class: %swm.mail_hook.api_service.sendgrid.class%

@@ -8,15 +8,15 @@ use Swm\Bundle\MailHookBundle\SwmMailHookEvent;
 class MandrillApiService extends BaseApiService
 {
     private $eventAssoc = [
-        'send'       => SwmMailHookEvent::MAILHOOK_SEND,
-        'deferral'   => SwmMailHookEvent::MAILHOOK_DEFERRAL,
-        'open'       => SwmMailHookEvent::MAILHOOK_OPEN,
-        'click'      => SwmMailHookEvent::MAILHOOK_CLICK,
+        'send'        => SwmMailHookEvent::MAILHOOK_SEND,
+        'deferral'    => SwmMailHookEvent::MAILHOOK_DEFERRAL,
+        'open'        => SwmMailHookEvent::MAILHOOK_OPEN,
+        'click'       => SwmMailHookEvent::MAILHOOK_CLICK,
         'soft_bounce' => SwmMailHookEvent::MAILHOOK_BOUNCE,
         'hard_bounce' => SwmMailHookEvent::MAILHOOK_BOUNCE,
-        'spam'       => SwmMailHookEvent::MAILHOOK_SPAM,
-        'unsub'      => SwmMailHookEvent::MAILHOOK_UNSUB,
-        'reject'     => SwmMailHookEvent::MAILHOOK_REJECT,
+        'spam'        => SwmMailHookEvent::MAILHOOK_SPAM,
+        'unsub'       => SwmMailHookEvent::MAILHOOK_UNSUB,
+        'reject'      => SwmMailHookEvent::MAILHOOK_REJECT,
     ];
 
     private function bindHook(array $hook)

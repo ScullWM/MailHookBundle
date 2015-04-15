@@ -75,4 +75,12 @@ final class SwmMailHookEvent
      * @var string
      */
     const MAILHOOK_REJECT = 'swm.mail_hook.event.reject';
+
+    /**
+     * The MAILHOOK_OTHER event occurs for specials case
+     * The event is an instance of Swm\Bundle\MailHookBundle\Event\MailEvent
+     *
+     * @var string
+     */
+    const MAILHOOK_OTHER = 'swm.mail_hook.event.other';
 }

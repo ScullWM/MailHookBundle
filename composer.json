@@ -1,0 +1,21 @@
+{
+    "name": "scullwm/mailhookbundle",
+    "type": "library",
+    "description": "A bundle to catch API webhook from differents mail service",
+    "keywords": ["symfony", "bundle", "mail", "api", "webhook", "hook", "mandrill", "mailjet"],
+    "homepage": "http://github.com/ScullWM/MailHookBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Perez",
+            "email": "thomas@scullwm.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.*",
+        "symfony/framework-bundle": ">=2.3"
+    },
+    "autoload": {
+        "psr-4": { "Swm\\Bundle\\MailHookBundle\\": "" }
+    }
+}

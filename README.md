@@ -1,4 +1,4 @@
-SwmMailHookBundle - A bundle to catch api webhook from different Mail service
+SwmMailHookBundle - A bundle to catch API webhook from differents mail service
 =============================================================================
 
 Features

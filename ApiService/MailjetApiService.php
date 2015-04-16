@@ -3,6 +3,7 @@
 namespace Swm\Bundle\MailHookBundle\ApiService;
 
 use Swm\Bundle\MailHookBundle\Hook\DefaultHook;
+use Swm\Bundle\MailHookBundle\SwmMailHookEvent;
 
 class MailjetApiService extends BaseApiService
 {

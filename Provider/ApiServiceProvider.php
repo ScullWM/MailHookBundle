@@ -2,32 +2,16 @@
 
 namespace Swm\Bundle\MailHookBundle\Provider;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Swm\Bundle\MailHookBundle\ApiService\ApiServiceInterface;
 use Symfony\Component\DependencyInjection\Exception\LogicException;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 
 class ApiServiceProvider implements ProviderInterface
 {
     /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
      * @var array
      */
-    private $apiServiceAllowed;
-
-    /**
-     * @param  ContainerInterface $container
-     * @param  array              $apiServiceAllowed
-     */
-    public function __construct(ContainerInterface $container, array $apiServiceAllowed = array())
-    {
-        $this->container         = $container;
-        // Eumh eumh, I could get it by myself :p
-        $this->apiServiceAllowed = $apiServiceAllowed;
-    }
+    private $apiServiceList = [];
 
     /**
      * @param  string $apiServiceName
@@ -35,15 +19,19 @@ class ApiServiceProvider implements ProviderInterface
      */
     public function get($apiServiceName)
     {
-        if (!in_array($apiServiceName, $this->apiServiceAllowed)) {
+        if (!array_key_exists($apiServiceName, $this->apiServiceList)) {
             throw new LogicException("This api service is not allowed");
         }
+        return $this->apiServiceList[$apiServiceName];
+    }
 
-        if (!$this->container->has('swm.mail_hook.api_service.' . $this->sanitize($apiServiceName))) {
-            throw new ServiceNotFoundException($this->sanitize($apiServiceName));
-        }
-
-        return $this->container->get('swm.mail_hook.api_service.' . $this->sanitize($apiServiceName));
+    /**
+     * @param string              $apiServiceName
+     * @param ApiServiceInterface $apiService
+     */
+    public function setApiService($apiServiceName, ApiServiceInterface $apiService)
+    {
+        $this->apiServiceList[$apiServiceName] = $apiService;
     }
 
     /**

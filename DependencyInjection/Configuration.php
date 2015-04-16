@@ -37,7 +37,6 @@ class Configuration implements ConfigurationInterface
     {
         $rootNode
             ->children()
-                ->arrayNode('apiservicesavailables')->treatNullLike(array())->prototype('scalar')->end()->defaultValue($this->listService)->end()
                 ->variableNode('secretsalt')->defaultValue('notSecret')->end()
             ->end()
         ;

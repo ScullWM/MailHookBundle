@@ -18,9 +18,6 @@ services:
 
     swm.mail_hook.provider.api_service:
         class: %swm.mail_hook.provider.api_service.class%
-        arguments:
-            - @service_container
-            - %swm_mailhook.apiservicesavailables%
 
     swm.mail_hook.hydrator.default:
         class: %swm.mail_hook.hydrator.default.class%
@@ -32,15 +29,25 @@ services:
 
     swm.mail_hook.api_service.campainmonitor:
         class: %swm.mail_hook.api_service.campainmonitor.class%
+        tags:
+            -  { name: swm.mailhook, key: campainmonitor }
 
     swm.mail_hook.api_service.mailgun:
         class: %swm.mail_hook.api_service.mailgun.class%
+        tags:
+            -  { name: swm.mailhook, key: mailgun }
 
     swm.mail_hook.api_service.mailjet:
         class: %swm.mail_hook.api_service.mailjet.class%
+        tags:
+            -  { name: swm.mailhook, key: mailjet }
 
     swm.mail_hook.api_service.mandrill:
         class: %swm.mail_hook.api_service.mandrill.class%
+        tags:
+            -  { name: swm.mailhook, key: mandrill }
 
     swm.mail_hook.api_service.sendgrid:
         class: %swm.mail_hook.api_service.sendgrid.class%
+        tags:
+            -  { name: swm.mailhook, key: sendgrid }

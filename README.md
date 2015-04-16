@@ -42,7 +42,6 @@ Configuration
 
 ```yaml
 swm_mailhook:
-    apiservicesavailables: ['mandrill','mailjet','campainmonitor','mailgun']
     secretsalt: notSecret
 ```
 

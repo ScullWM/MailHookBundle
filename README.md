@@ -16,7 +16,7 @@ Installation
 
 Add the package to your composer.json file
 ```
-"swm/mailhookbundle": "dev-master",
+"scullwm/mailhookbundle": "dev-master",
 ```
 
 Add this to app/AppKernel.php

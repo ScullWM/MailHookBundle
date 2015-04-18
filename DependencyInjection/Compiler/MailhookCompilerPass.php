@@ -17,7 +17,7 @@ class MailhookCompilerPass implements CompilerPassInterface
             }
 
             $container->getDefinition('swm.mail_hook.provider.api_service')
-                ->addMethodCall('setApiService', array($tag['key'], $container->getDefinition($id)));
+                ->addMethodCall('setApiService', array($tag['alias'], $container->getDefinition($id)));
         }
     }
 }

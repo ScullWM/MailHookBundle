@@ -1,5 +1,7 @@
 <?php
 
+namespace tests\units\Swm\Bundle\MailHookBundle\ApiService;
+
 use mageekguy\atoum as Units;
 use Swm\Bundle\MailHookBundle\ApiService\MandrillApiService as TestedModel;
 

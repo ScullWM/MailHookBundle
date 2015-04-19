@@ -15,6 +15,9 @@
         "php": ">=5.4.0",
         "symfony/framework-bundle": ">=2.3"
     },
+    "require-dev": {
+        "atoum/atoum": "dev-master"
+    },
     "autoload": {
         "psr-4": { "Swm\\Bundle\\MailHookBundle\\": "" }
     }

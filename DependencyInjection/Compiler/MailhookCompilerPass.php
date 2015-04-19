@@ -12,8 +12,8 @@ class MailhookCompilerPass implements CompilerPassInterface
     {
         foreach ($container->findTaggedServiceIds('swm.mailhook') as $id => $tag) {
             $tag = array_pop($tag);
-            if (!isset($tag['key'])) {
-                throw new \Exception('You should define a key for all "swm.mailhook" tagged services');
+            if (!isset($tag['alias'])) {
+                throw new \Exception('You should define an alias for all "swm.mailhook" tagged services');
             }
 
             $container->getDefinition('swm.mail_hook.provider.api_service')

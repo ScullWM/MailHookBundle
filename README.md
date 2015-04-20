@@ -41,7 +41,7 @@ Configuration
 ### 1) Edit app/config.yml
 
 ```yaml
-swm_mailhook:
+swm_mail_hook:
     secretsalt: notSecret
 ```
 

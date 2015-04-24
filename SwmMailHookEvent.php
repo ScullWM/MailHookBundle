@@ -29,12 +29,20 @@ final class SwmMailHookEvent
     const MAILHOOK_CLICK = 'swm.mail_hook.event.click';
 
     /**
-     * The MAILHOOK_BOUNCE event occurs when a mail is Bounced
+     * The MAILHOOK_BOUNCE event occurs when a mail is soft Bounced
      * The event is an instance of Swm\Bundle\MailHookBundle\Event\MailEvent
      *
      * @var string
      */
-    const MAILHOOK_BOUNCE = 'swm.mail_hook.event.bounce';
+    const MAILHOOK_SOFTBOUNCE = 'swm.mail_hook.event.soft_bounce';
+
+    /**
+     * The MAILHOOK_BOUNCE event occurs when a mail is hard Bounced
+     * The event is an instance of Swm\Bundle\MailHookBundle\Event\MailEvent
+     *
+     * @var string
+     */
+    const MAILHOOK_HARDBOUNCE = 'swm.mail_hook.event.hard_bounce';
 
     /**
      * The MAILHOOK_DEFERRAL event occurs when a mail is deferral

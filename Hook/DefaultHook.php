@@ -10,7 +10,7 @@ class DefaultHook implements HookInterface
     private $metaData;
     private $eventDispatched;
 
-    public function __construct($event, $email, $service, $metaData, $eventDispatched)
+    public function __construct($event, $email, $service, $metaData = [], $eventDispatched)
     {
         $this->event           = $event;
         $this->email           = $email;

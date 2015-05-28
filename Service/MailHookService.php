@@ -31,7 +31,7 @@ class MailHookService
 
     /**
      * @param  string $apiService
-     * @return array
+     * @return array<HookInterface>
      */
     public function getHooksForService($serviceName)
     {

@@ -28,10 +28,13 @@ class ApiServiceProvider implements ProviderInterface
     /**
      * @param string              $apiServiceName
      * @param ApiServiceInterface $apiService
+     * @return this
      */
     public function setApiService($apiServiceName, ApiServiceInterface $apiService)
     {
         $this->apiServiceList[$apiServiceName] = $apiService;
+
+        return $this;
     }
 
     /**

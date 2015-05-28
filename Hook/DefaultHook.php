@@ -4,12 +4,38 @@ namespace Swm\Bundle\MailHookBundle\Hook;
 
 class DefaultHook implements HookInterface
 {
+    /**
+     * @var string
+     */
     private $event;
+
+    /**
+     * @var string
+     */
     private $email;
+
+    /**
+     * @var string
+     */
     private $service;
+
+    /**
+     * @var array
+     */
     private $metaData;
+
+    /**
+     * @var string
+     */
     private $eventDispatched;
 
+    /**
+     * @param string $event
+     * @param string $email
+     * @param string $service
+     * @param array  $metaData
+     * @param string $eventDispatched
+     */
     public function __construct($event, $email, $service, $metaData = array(), $eventDispatched)
     {
         $this->event           = $event;
@@ -108,7 +134,7 @@ class DefaultHook implements HookInterface
      *
      * @return this
      */
-    public function setMetaData($metaData)
+    public function setMetaData(array $metaData = array())
     {
         $this->metaData = $metaData;
 

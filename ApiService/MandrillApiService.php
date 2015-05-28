@@ -19,6 +19,10 @@ class MandrillApiService extends BaseApiService
         'reject'      => SwmMailHookEvent::MAILHOOK_REJECT,
     );
 
+    /**
+     * @param  array  $hook
+     * @return HookInterface
+     */
     private function bindHook(array $hook)
     {
         $email = $hook['msg']['email'];
@@ -26,6 +30,9 @@ class MandrillApiService extends BaseApiService
         return new DefaultHook($event, $email, 'mandrill', $hook, $this->eventAssoc[$event]);
     }
 
+    /**
+     * @return array<HookInterface>
+     */
     public function bind()
     {
         if (!$this->request->get('mandrill_events')) {

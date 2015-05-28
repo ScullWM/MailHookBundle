@@ -77,17 +77,17 @@ http://www.mywebsite.com/webhook/dDifXo26/mailjet/catch
 Events dispatched
 -----------------
 
-swm.mail_hook.event.open
-swm.mail_hook.event.send
-swm.mail_hook.event.click
-swm.mail_hook.event.soft_bounce
-swm.mail_hook.event.hard_bounce
-swm.mail_hook.event.deferral
-swm.mail_hook.event.spam
-swm.mail_hook.event.blocked
-swm.mail_hook.event.unsub
-swm.mail_hook.event.reject
-swm.mail_hook.event.other
+- swm.mail_hook.event.open
+- swm.mail_hook.event.send
+- swm.mail_hook.event.click
+- swm.mail_hook.event.soft_bounce
+- swm.mail_hook.event.hard_bounce
+- swm.mail_hook.event.deferral
+- swm.mail_hook.event.spam
+- swm.mail_hook.event.blocked
+- swm.mail_hook.event.unsub
+- swm.mail_hook.event.reject
+- swm.mail_hook.event.other
 
 
 Events listener provided

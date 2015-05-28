@@ -19,6 +19,9 @@ class MailjetApiService extends BaseApiService
         'typofix'     => SwmMailHookEvent::MAILHOOK_OTHER,
     );
 
+    /**
+     * @return array<HookInterface>
+     */
     public function bind()
     {
         if (0 === strpos($this->request->headers->get('Content-Type'), 'application/json')) {

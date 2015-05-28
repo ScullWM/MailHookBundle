@@ -9,7 +9,7 @@ abstract class BaseApiService implements ApiServiceInterface
     /**
      * @var array
      */
-    protected $metaData = [];
+    protected $metaData = array();
 
     /**
      * @var Request

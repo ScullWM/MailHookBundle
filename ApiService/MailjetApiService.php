@@ -7,7 +7,7 @@ use Swm\Bundle\MailHookBundle\SwmMailHookEvent;
 
 class MailjetApiService extends BaseApiService
 {
-    private $eventAssoc = [
+    private $eventAssoc = array(
         'send'        => SwmMailHookEvent::MAILHOOK_SEND,
         'deferral'    => SwmMailHookEvent::MAILHOOK_DEFERRAL,
         'open'        => SwmMailHookEvent::MAILHOOK_OPEN,
@@ -17,7 +17,7 @@ class MailjetApiService extends BaseApiService
         'spam'        => SwmMailHookEvent::MAILHOOK_SPAM,
         'unsub'       => SwmMailHookEvent::MAILHOOK_UNSUB,
         'typofix'     => SwmMailHookEvent::MAILHOOK_OTHER,
-    ];
+    );
 
     public function bind()
     {

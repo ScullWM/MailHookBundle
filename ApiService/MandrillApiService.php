@@ -7,7 +7,7 @@ use Swm\Bundle\MailHookBundle\SwmMailHookEvent;
 
 class MandrillApiService extends BaseApiService
 {
-    private $eventAssoc = [
+    private $eventAssoc = array(
         'send'        => SwmMailHookEvent::MAILHOOK_SEND,
         'deferral'    => SwmMailHookEvent::MAILHOOK_DEFERRAL,
         'open'        => SwmMailHookEvent::MAILHOOK_OPEN,
@@ -17,7 +17,7 @@ class MandrillApiService extends BaseApiService
         'spam'        => SwmMailHookEvent::MAILHOOK_SPAM,
         'unsub'       => SwmMailHookEvent::MAILHOOK_UNSUB,
         'reject'      => SwmMailHookEvent::MAILHOOK_REJECT,
-    ];
+    );
 
     private function bindHook(array $hook)
     {

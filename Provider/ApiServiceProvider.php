@@ -11,7 +11,7 @@ class ApiServiceProvider implements ProviderInterface
     /**
      * @var array
      */
-    private $apiServiceList = [];
+    private $apiServiceList = array();
 
     /**
      * @param  string $apiServiceName

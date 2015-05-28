@@ -1,5 +1,7 @@
-SwmMailHookBundle - A bundle to catch API webhook from differents mail service
+SwmMailHookBundle
 =============================================================================
+Catch webhook from various API mail service
+
 
 Features
 --------
@@ -41,7 +43,7 @@ Configuration
 ### 1) Edit app/config.yml
 
 ```yaml
-swm_mailhook:
+swm_mail_hook:
     secretsalt: notSecret
 ```
 
@@ -71,3 +73,25 @@ http://www.mywebsite.com/webhook/notSecret/mandrill/catch
 With a custom secretSalt and mailjet service it should be :
 http://www.mywebsite.com/webhook/dDifXo26/mailjet/catch
 
+
+Events dispatched
+-----------------
+
+- swm.mail_hook.event.open
+- swm.mail_hook.event.send
+- swm.mail_hook.event.click
+- swm.mail_hook.event.soft_bounce
+- swm.mail_hook.event.hard_bounce
+- swm.mail_hook.event.deferral
+- swm.mail_hook.event.spam
+- swm.mail_hook.event.blocked
+- swm.mail_hook.event.unsub
+- swm.mail_hook.event.reject
+- swm.mail_hook.event.other
+
+
+Events listener provided
+------------------------
+
+By default, a simple MailHookEvent is dispatched by the DefaultHydrator.
+But if you are using FosUserBundle, you can use the FosUserHydrator to use directly UserMailHookEvent which return directly the user entity associate on the email.

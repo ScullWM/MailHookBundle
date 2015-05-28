@@ -24,6 +24,7 @@ class SwmMailHookExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('service.yml');
+        $loader->load('apiService.yml');
 
         $container->setParameter('swm_mailhook.secretsalt', $config['secretsalt']);
     }

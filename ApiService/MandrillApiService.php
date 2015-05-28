@@ -7,18 +7,22 @@ use Swm\Bundle\MailHookBundle\SwmMailHookEvent;
 
 class MandrillApiService extends BaseApiService
 {
-    private $eventAssoc = [
+    private $eventAssoc = array(
         'send'        => SwmMailHookEvent::MAILHOOK_SEND,
         'deferral'    => SwmMailHookEvent::MAILHOOK_DEFERRAL,
         'open'        => SwmMailHookEvent::MAILHOOK_OPEN,
         'click'       => SwmMailHookEvent::MAILHOOK_CLICK,
-        'soft_bounce' => SwmMailHookEvent::MAILHOOK_BOUNCE,
-        'hard_bounce' => SwmMailHookEvent::MAILHOOK_BOUNCE,
+        'soft_bounce' => SwmMailHookEvent::MAILHOOK_SOFTBOUNCE,
+        'hard_bounce' => SwmMailHookEvent::MAILHOOK_HARDBOUNCE,
         'spam'        => SwmMailHookEvent::MAILHOOK_SPAM,
         'unsub'       => SwmMailHookEvent::MAILHOOK_UNSUB,
         'reject'      => SwmMailHookEvent::MAILHOOK_REJECT,
-    ];
+    );
 
+    /**
+     * @param  array  $hook
+     * @return HookInterface
+     */
     private function bindHook(array $hook)
     {
         $email = $hook['msg']['email'];
@@ -26,6 +30,9 @@ class MandrillApiService extends BaseApiService
         return new DefaultHook($event, $email, 'mandrill', $hook, $this->eventAssoc[$event]);
     }
 
+    /**
+     * @return array<HookInterface>
+     */
     public function bind()
     {
         if (!$this->request->get('mandrill_events')) {

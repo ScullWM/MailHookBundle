@@ -18,6 +18,9 @@
     "require-dev": {
         "atoum/atoum": "dev-master"
     },
+    "config": {
+        "bin-dir": "bin"
+    },
     "autoload": {
         "psr-4": { "Swm\\Bundle\\MailHookBundle\\": "" }
     }

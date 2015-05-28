@@ -19,5 +19,8 @@ script:
   - bin/atoum
 
 notifications:
-  email:
-    - thomas@scullwm.com
+    email:
+        recipients:
+            - thomas@scullwm.com
+        on_success: change
+        on_failure: change

@@ -1,16 +1,22 @@
-SwmMailHookBundle
+MailHookBundle
 =============================================================================
-Catch webhook from various API mail service
+Catch webhook from various API mail service and directly get the related user.
+
+
+[![Build Status](https://scrutinizer-ci.com/g/ScullWM/MailHookBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ScullWM/MailHookBundle/)
+[![Build Status](https://scrutinizer-ci.com/g/ScullWM/MailHookBundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ScullWM/MailHookBundle/build-status/master)
 
 
 Features
 --------
-Catch webhook from your email provider and dispatch an event with all good data you need in.
+Define your project url to your mail provider service (Mandrill, MailJet...) and get events dispatched into your app.
 
 Exemple case :
 -------------
-Disable to a user's notification when a mail is signal as spam.
-Send a private message to a user if last mail send get bounced.
+- Disable to a user's notification when a mail is signal as spam.
+- Send a private message to a user if last mail send get bounced.
+- Warning an Account Manager about a hard bounce on a new user creation.
+- Track email reading and clicks on your custom CRM.
 
 
 Installation
@@ -95,3 +101,13 @@ Events listener provided
 
 By default, a simple MailHookEvent is dispatched by the DefaultHydrator.
 But if you are using FosUserBundle, you can use the FosUserHydrator to use directly UserMailHookEvent which return directly the user entity associate on the email.
+
+
+If your using FosUserBundle
+----------------------------
+
+There's already a special route called "swm_mailhook_user_catcher_for_service"
+```/{secretSalt}/{service}/catchuser```
+It directly return a UserMailHookEvent where you can getUser()
+
+To see a basic exemple see this link : https://gist.github.com/ScullWM/8acea9c0e229ed76717f (Using JMS/di-extra-bundle optionnal)

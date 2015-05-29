@@ -37,6 +37,30 @@ class MailHookController extends Controller
         return new Response();
     }
 
+    /**
+     * @Route("/{secretSalt}/{service}/catchuser", name="swm_mailhook_user_catcher_for_service")
+     * @Method({"POST","GET"})
+     */
+    public function catchUserAction($secretSalt, $service = null)
+    {
+        // check if request is granted
+        $this->checkSecret($secretSalt);
+
+        $mailHookService = $this->get('swm.mail_hook.service.mail_hook');
+
+        // get hooks
+        $hooks = $mailHookService->getHooksForService($service);
+
+        $eventHydrator = $this->get('swm.mail_hook.hydrator.fos_user');
+
+        foreach ($hooks as $hook) {
+            $event = $eventHydrator->hydrate($hook, 'Swm\Bundle\MailHookBundle\Event\UserMailHookEvent');
+            $this->get('event_dispatcher')->dispatch($hook->getEventDispatched(), $event);
+        }
+
+        return new Response();
+    }
+
     private function checkSecret($secretSalt)
     {
         if ($this->container->getParameter('swm_mailhook.secretsalt') !== $secretSalt) {

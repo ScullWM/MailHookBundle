@@ -36,7 +36,7 @@ class FosUserHydrator implements HydratorInterface
         }
 
         $hydratedEntity->setEmail($apiService->getEmail());
-        $hydratedEntity->setName($apiService->getName());
+        $hydratedEntity->setName($apiService->getService());
         $hydratedEntity->setMetaData($apiService->getMetaData());
 
         $user = $this->userManager->findUserByEmail($apiService->getEmail());

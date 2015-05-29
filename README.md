@@ -17,6 +17,7 @@ Exemple case :
 - Send a private message to a user if last mail send get bounced.
 - Warning an Account Manager about a hard bounce on a new user creation.
 - Track email reading and clicks on your custom CRM.
+- All you want!
 
 
 Installation
@@ -106,8 +107,9 @@ But if you are using FosUserBundle, you can use the FosUserHydrator to use direc
 If your using FosUserBundle
 ----------------------------
 
-There's already a special route called "swm_mailhook_user_catcher_for_service"
-```/{secretSalt}/{service}/catchuser```
-It directly return a UserMailHookEvent where you can getUser()
+There's already a special route called "swm_mailhook_user_catcher_for_service":
+/{secretSalt}/{service}/catchuser
+
+It directly return a UserMailHookEvent where you can getUser().
 
 To see a basic exemple see this link : https://gist.github.com/ScullWM/8acea9c0e229ed76717f (Using JMS/di-extra-bundle optionnal)

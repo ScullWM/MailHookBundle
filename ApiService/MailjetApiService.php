@@ -31,6 +31,6 @@ class MailjetApiService extends BaseApiService
         $email = $hook['email'];
         $event = $hook['event'];
 
-        return [new DefaultHook($event, $email, 'mailjet', $metaData)];
+        return array(new DefaultHook($event, $email, 'mailjet', $metaData));
     }
 }

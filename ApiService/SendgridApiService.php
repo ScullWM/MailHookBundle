@@ -20,6 +20,8 @@ class SendgridApiService extends BaseApiService
      */
     public function bind()
     {
-        return array_map(array($this, 'bindHook'), $this->metaData);
+        $metaData = json_decode($this->request->getContent(), true);
+
+        return array_map(array($this, 'bindHook'), $metaData);
     }
 }

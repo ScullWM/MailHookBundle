@@ -20,6 +20,8 @@ class MailgunApiService extends BaseApiService
      */
     public function bind()
     {
-        return array($this->bindHook($this->metaData));
+        $metaData = json_decode($this->request->getContent(), true);
+
+        return array($this->bindHook($metaData));
     }
 }

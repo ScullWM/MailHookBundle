@@ -24,8 +24,7 @@ class MailjetApiService extends BaseApiService
      */
     public function bind()
     {
-        $content = '{"event":"blocked","time":1434054748,"MessageID":18014404367486704,"email":"cueilleur.essaims.77@free.fr","mj_campaign_id":0,"mj_contact_id":199,"customcampaign":"","error_related_to":"mailjet","error":"preblocked"}';
-        $metaData = json_decode($content, true);
+        $metaData = json_decode($this->request->getContent(), true);
 
         $email = $metaData['email'];
         $event = $metaData['event'];

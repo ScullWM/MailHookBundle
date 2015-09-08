@@ -2,6 +2,7 @@ parameters:
     swm.mail_hook.service.mail_hook.class: Swm\Bundle\MailHookBundle\Service\MailHookService
     swm.mail_hook.provider.api_service.class: Swm\Bundle\MailHookBundle\Provider\ApiServiceProvider
     swm.mail_hook.hydrator.default.class: Swm\Bundle\MailHookBundle\Hydrator\DefaultHydrator
+    swm.mail_hook.hydrator.fos_user.class: Swm\Bundle\MailHookBundle\Hydrator\FosUserHydrator
 
 services:
     swm.mail_hook.service.mail_hook:
@@ -18,6 +19,6 @@ services:
         class: %swm.mail_hook.hydrator.default.class%
 
     swm.mail_hook.hydrator.fos_user:
-        class: %swm.mail_hook.hydrator.default.class%
+        class: %swm.mail_hook.hydrator.fos_user.class%
         arguments:
             - @fos_user.user_manager

@@ -11,6 +11,17 @@ Features
 --------
 Define your project url to your mail provider service (Mandrill, MailJet...) and get events dispatched into your app.
 
+
+Support various service
+--------
+- Campain Monitor
+- Mailgun
+- Mailjet
+- Mandrill
+- Sendgrid
+- Sparkpost
+- And add your custom service
+
 Exemple case :
 -------------
 - Disable to a user's notification when a mail is signal as spam.

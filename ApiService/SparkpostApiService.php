@@ -8,16 +8,16 @@ use Swm\Bundle\MailHookBundle\SwmMailHookEvent;
 class SparkpostApiService extends BaseApiService
 {
     private $eventAssoc = array(
-        'open'        => SwmMailHookEvent::MAILHOOK_OPEN,
-        'click'       => SwmMailHookEvent::MAILHOOK_CLICK,
-
-        'send'        => SwmMailHookEvent::MAILHOOK_SEND,
-        'deferral'    => SwmMailHookEvent::MAILHOOK_DEFERRAL,
-        'soft_bounce' => SwmMailHookEvent::MAILHOOK_SOFTBOUNCE,
-        'hard_bounce' => SwmMailHookEvent::MAILHOOK_HARDBOUNCE,
-        'spam'        => SwmMailHookEvent::MAILHOOK_SPAM,
-        'unsub'       => SwmMailHookEvent::MAILHOOK_UNSUB,
-        'reject'      => SwmMailHookEvent::MAILHOOK_REJECT,
+        'open'             => SwmMailHookEvent::MAILHOOK_OPEN,
+        'click'            => SwmMailHookEvent::MAILHOOK_CLICK,
+        'bounce'           => SwmMailHookEvent::MAILHOOK_HARDBOUNCE,
+        'spam_complaint'   => SwmMailHookEvent::MAILHOOK_SPAM,
+        'list_unsubscribe' => SwmMailHookEvent::MAILHOOK_UNSUB,
+        'link_unsubscribe' => SwmMailHookEvent::MAILHOOK_UNSUB,
+        'delay'            => SwmMailHookEvent::MAILHOOK_DEFERRAL,
+        'delivery'         => SwmMailHookEvent::MAILHOOK_SEND,
+        'policy_rejection' => SwmMailHookEvent::MAILHOOK_REJECT,
+        'out_of_band'      => SwmMailHookEvent::MAILHOOK_HARDBOUNCE,
     );
 
     /**

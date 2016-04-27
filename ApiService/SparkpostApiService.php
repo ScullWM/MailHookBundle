@@ -36,11 +36,11 @@ class SparkpostApiService extends BaseApiService
      */
     public function bind()
     {
-        if (!$this->request->get('results')) {
+        if (!$this->request->getContent()) {
             throw new \Exception("Could not find data");
         }
 
-        $sparkpostEvents = json_decode($this->request->get('results'), true);
+        $sparkpostEvents = json_decode($this->request->getContent(), true);
 
         return array_map([$this, 'bindHook'], $sparkpostEvents);
     }

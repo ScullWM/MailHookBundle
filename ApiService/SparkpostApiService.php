@@ -26,8 +26,13 @@ class SparkpostApiService extends BaseApiService
      */
     private function bindHook(array $hook)
     {
-        $email = $hook['msys']['rcpt_to'];
+        $email = $hook['msys']['message_event']['rcpt_to'];
         $event = $hook['msys']['message_event']['type'];
+
+        if (!isset($this->eventAssoc[$event])) {
+            return;
+        }
+
         return new DefaultHook($event, $email, 'mandrill', $hook, $this->eventAssoc[$event]);
     }
 

@@ -22,7 +22,7 @@ Support various service
 - Sparkpost
 - And add your custom service
 
-Exemple case :
+Example use cases:
 -------------
 - Disable to a user's notification when a mail is signal as spam.
 - Send a private message to a user if last mail send get bounced.

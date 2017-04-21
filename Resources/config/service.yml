@@ -18,7 +18,3 @@ services:
     swm.mail_hook.hydrator.default:
         class: %swm.mail_hook.hydrator.default.class%
 
-    swm.mail_hook.hydrator.fos_user:
-        class: %swm.mail_hook.hydrator.fos_user.class%
-        arguments:
-            - @fos_user.user_manager

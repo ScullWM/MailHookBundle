@@ -6,6 +6,7 @@ use Swm\Bundle\MailHookBundle\ApiService\ApiServiceInterface;
 use Swm\Bundle\MailHookBundle\Model as ApiServiceModel;
 use Swm\Bundle\MailHookBundle\Provider\ProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class MailHookService
 {
@@ -20,17 +21,17 @@ class MailHookService
     private $apiServiceModelProvider;
 
     /**
-     * @param  Request           $request
+     * @param  RequestStack      $requestStack
      * @param  ProviderInterface $apiServiceProvider
      */
-    public function __construct(Request $request, ProviderInterface $apiServiceProvider)
+    public function __construct(RequestStack $requestStack, ProviderInterface $apiServiceProvider)
     {
-        $this->request            = $request;
+        $this->request            = $requestStack->getCurrentRequest();
         $this->apiServiceProvider = $apiServiceProvider;
     }
 
     /**
-     * @param  string $apiService
+     * @param  string $serviceName
      * @return array<HookInterface>
      */
     public function getHooksForService($serviceName)

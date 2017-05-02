@@ -6,15 +6,15 @@ parameters:
 
 services:
     swm.mail_hook.service.mail_hook:
-        class: %swm.mail_hook.service.mail_hook.class%
+        class: "%swm.mail_hook.service.mail_hook.class%"
         scope: request
         arguments:
-            - @request
-            - @swm.mail_hook.provider.api_service
+            - "@request_stack"
+            - "@swm.mail_hook.provider.api_service"
 
     swm.mail_hook.provider.api_service:
-        class: %swm.mail_hook.provider.api_service.class%
+        class: "%swm.mail_hook.provider.api_service.class%"
 
     swm.mail_hook.hydrator.default:
-        class: %swm.mail_hook.hydrator.default.class%
+        class: "%swm.mail_hook.hydrator.default.class%"
 

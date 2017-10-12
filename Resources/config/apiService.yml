@@ -5,6 +5,7 @@ parameters:
     swm.mail_hook.api_service.mandrill.class: Swm\Bundle\MailHookBundle\ApiService\MandrillApiService
     swm.mail_hook.api_service.sendgrid.class: Swm\Bundle\MailHookBundle\ApiService\SendgridApiService
     swm.mail_hook.api_service.sparkpost.class: Swm\Bundle\MailHookBundle\ApiService\SparkpostApiService
+    swm.mail_hook.api_service.ses.class: Swm\Bundle\MailHookBundle\ApiService\SesApiService
 
 services:
     swm.mail_hook.api_service.campainmonitor:
@@ -36,3 +37,8 @@ services:
         class: "%swm.mail_hook.api_service.sparkpost.class%"
         tags:
             -  { name: swm.mailhook, alias: sparkpost }
+
+    swm.mail_hook.api_service.ses:
+        class: "%swm.mail_hook.api_service.ses.class%"
+        tags:
+            -  { name: swm.mailhook, alias: ses }

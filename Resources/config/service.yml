@@ -7,7 +7,7 @@ parameters:
 services:
     swm.mail_hook.service.mail_hook:
         class: "%swm.mail_hook.service.mail_hook.class%"
-        scope: request
+        shared: false
         arguments:
             - "@request_stack"
             - "@swm.mail_hook.provider.api_service"

@@ -32,6 +32,6 @@ class MailgunApiService extends BaseApiService
     {
         $metaData = json_decode($this->request->getContent(), true);
 
-        return array($this->bindHook($metaData));
+        return array($this->bindHook($metaData['event-data']));
     }
 }

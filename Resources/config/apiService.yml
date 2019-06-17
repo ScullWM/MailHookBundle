@@ -8,7 +8,7 @@ parameters:
     swm.mail_hook.api_service.ses.class: Swm\Bundle\MailHookBundle\ApiService\SesApiService
 
 services:
-    _default:
+    _defaults:
         public: true
         
     swm.mail_hook.api_service.campainmonitor:

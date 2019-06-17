@@ -5,7 +5,7 @@ parameters:
     swm.mail_hook.hydrator.fos_user.class: Swm\Bundle\MailHookBundle\Hydrator\FosUserHydrator
 
 services:
-    _default:
+    _defaults:
         public: true
 
     swm.mail_hook.service.mail_hook:

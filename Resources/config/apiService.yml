@@ -6,6 +6,7 @@ parameters:
     swm.mail_hook.api_service.sendgrid.class: Swm\Bundle\MailHookBundle\ApiService\SendgridApiService
     swm.mail_hook.api_service.sparkpost.class: Swm\Bundle\MailHookBundle\ApiService\SparkpostApiService
     swm.mail_hook.api_service.ses.class: Swm\Bundle\MailHookBundle\ApiService\SesApiService
+    swm.mail_hook.api_service.postmark.class: Swm\Bundle\MailHookBundle\ApiService\PostmarkService
 
 services:
     _defaults:
@@ -45,3 +46,8 @@ services:
         class: "%swm.mail_hook.api_service.ses.class%"
         tags:
             -  { name: swm.mailhook, alias: ses }
+
+    swm.mail_hook.api_service.postmark:
+        class: "%swm.mail_hook.api_service.postmark.class%"
+        tags:
+            -  { name: swm.mailhook, alias: postmark }

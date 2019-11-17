@@ -32,33 +32,27 @@ class SesApiService extends BaseApiService
             throw new \Exception('AWS SNS Require a subscription confirmation: '.$metaData['SubscribeURL']);
         }
 
-        if (!isset($metaData['Message'])) {
-            throw new \Exception('Could not find data');
-        }
-
-        $sesMessage = json_decode($metaData['Message'], true);
-
         $hooks = [];
 
-        switch ($sesMessage['notificationType']) {
+        switch ($metaData['notificationType']) {
             case self::SNS_BOUNCE:
-                $event = strtolower($sesMessage['bounce']['bounceType']).'_bounce';
-                foreach ($sesMessage['bounce']['bouncedRecipients'] as $recipient) {
-                    $hooks[] = new DefaultHook($event, $recipient['emailAddress'], 'ses', $sesMessage, $this->eventAssoc[$event]);
+                $event = strtolower($metaData['bounce']['bounceType']).'_bounce';
+                foreach ($metaData['bounce']['bouncedRecipients'] as $recipient) {
+                    $hooks[] = new DefaultHook($event, $recipient['emailAddress'], 'ses', $metaData, $this->eventAssoc[$event]);
                 }
 
                 break;
             case self::SNS_COMPLAINT:
                 $event = 'spam_complaint';
-                foreach ($sesMessage['complaint']['complainedRecipients'] as $recipient) {
-                    $hooks[] = new DefaultHook($event, $recipient['emailAddress'], 'ses', $sesMessage, $this->eventAssoc[$event]);
+                foreach ($metaData['complaint']['complainedRecipients'] as $recipient) {
+                    $hooks[] = new DefaultHook($event, $recipient['emailAddress'], 'ses', $metaData, $this->eventAssoc[$event]);
                 }
 
                 break;
             case self::SNS_DELIVERY:
                 $event = 'delivery';
-                foreach ($sesMessage['delivery']['recipients'] as $recipient) {
-                    $hooks[] = new DefaultHook($event, $recipient, 'ses', $sesMessage, $this->eventAssoc[$event]);
+                foreach ($metaData['delivery']['recipients'] as $recipient) {
+                    $hooks[] = new DefaultHook($event, $recipient, 'ses', $metaData, $this->eventAssoc[$event]);
                 }
 
                 break;

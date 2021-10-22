@@ -18,8 +18,12 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('swm_mailhook');
+        $treeBuilder = new TreeBuilder('swm_mailhook');
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('swm_mailhook');
+        }
 
         $this->addConfig($rootNode);
 
